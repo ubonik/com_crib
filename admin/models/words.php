@@ -32,6 +32,7 @@ class CribModelWords extends JModelList
 		}
 		
 		$category = $this->getState('filter.category');
+		
 		if (!empty($category)) {
 			
 			$query->where('id_categories = '.(int)$category);
@@ -76,8 +77,7 @@ class CribModelWords extends JModelList
 	}
 	
 	protected function getStoreId($id = '')
-	{
-		// Compile the store id.
+	{		
 		$id .= ':' . $this->getState('filter.search');
 		$id .= ':' . $this->getState('filter.category');
 		$id .= ':' . $this->getState('filter.state');

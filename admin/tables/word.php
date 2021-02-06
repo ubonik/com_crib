@@ -22,21 +22,20 @@ class CribTableWord extends JTable
 		    throw new RuntimeException('ошибка');		   
 		}		   
 		   
-        foreach ($pks as $pk)
-			{
-				if (!$this->load($pk)) {
+        foreach ($pks as $pk) {
+		    if (!$this->load($pk)) {
 					
 				throw new RuntimeException('ошибка');
-			    }			
+			}			
 				
-				$this->state = $state;
+		    $this->state = $state;
 				
-				if (!$this->store()) {
+		    if (!$this->store()) {
 					
-				throw new RuntimeException('ошибка');
-			    }			
+			    throw new RuntimeException('ошибка');
+			}			
 			
-		    }
+		}
 		    
 		return true;	
 		
@@ -64,7 +63,6 @@ class CribTableWord extends JTable
 			
 			return false;			
 		}		
-		
 		
 		return true;		
 	}		

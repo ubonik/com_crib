@@ -12,8 +12,9 @@
 <version>0.0.3</version>
 <description>COM_CRIB_XML_DESCRIPTION</description>
     
-<files folder="site">	
-		
+<files folder="site">
+	
+	<folder>assets</folder>	
 	<folder>controllers</folder>
 	<folder>models</folder>
 	<folder>views</folder>

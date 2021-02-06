@@ -36,55 +36,36 @@ protected function getListQuery()
 	
 	
 	protected function populateState($ordering = null, $direction = null)
-	{
-		/*$value = $this->getUserStateFromRequest($this->context.'.filter.idcat','idcat');
-			$this->setState('filter.idcat', $value);
-		
-		$value = $this->getUserStateFromRequest($this->context.'.filer.lerned', 'lerned');
-			
-			$this->setState('filter.lerned', $value);
-		
-		*/
+	{		
 		
 		parent::populateState('id', 'desc');
 		
 		$input = JFactory::getApplication()->input;
 		
-		//print_r($input);
-		
 		$value = $input->getInt('idcat');
 		
 		if ($value) {
 			
-			$this->setState('filter.idcat', $value);
+			$this->setState('filter.idcat', $value);			
 			
-			
-			}else{
+		}else{
 				
-				$this->setState('filter.idcat', false);
+			$this->setState('filter.idcat', false);				
 				
-				
-				
-				}
-			
+		}			
 		
 		$value = $this->getUserStateFromRequest($this->context.'.filer.lerned', 'lerned');
 			
-			$this->setState('filter.lerned', $value);
-		
-		
-		
+			$this->setState('filter.lerned', $value);		
 		
 	}	
 	 
 	protected function getStoreId($id = '')
-	{
-		// Add the list state to the store id.
+	{		
 		$id .= ':' . $this->getState('filter.idcat');
 		$id .= ':' . $this->getState('filter.lerned');		
 
 		return parent::getStoreId($id);
 	}	
-	
 	
 }

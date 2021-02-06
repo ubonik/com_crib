@@ -5,7 +5,6 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.tooltip');
 JHtml::_('formbehavior.chosen', 'select');
 
-
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_crib&view=words')?>" 
@@ -52,11 +51,9 @@ JHtml::_('formbehavior.chosen', 'select');
                     <?php $link = JRoute::_('index.php?option=com_crib&task=word.edit&id=' .$item->id) ?>
                     <td><?php echo JHtml::_('link', $link, $item->english); ?></td>
                     <td><?php echo $item->rus; ?></td>
-                    <td><?php echo JHtml::_('jgrid.published', $item->state, $key, 'words.'); ?></td> 
+                    <td><?php echo JHtml::_('jgrid.published', $item->state, $key, 'words.'); ?></td>                
                     
-                    
-                    <td>
-						
+                    <td>						
 						<?php if ($this->saveOrder): ?>
 						    <?php if ($this->listDirn == 'asc'): ?>
 						    <span><?php echo $this->pagination->orderUpIcon($i, true, 'words.orderup', 'JLIB_HTML_MOVE_UP',$this->saveOrder) ?></span>

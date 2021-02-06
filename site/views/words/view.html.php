@@ -22,10 +22,10 @@ class CribViewWords extends JViewLegacy
 	
 	protected function setDocument(){
 		
-		$document = JFactory::getDocument();		
-		$document->addStyleSheet(JUri::root(true).'/media/com_eng/css/style.css');		
+		$document = JFactory::getDocument();			
+		$document->addStyleSheet(JUri::root(true).'/administrator/components/com_crib/assets/css/style.css');
 		
-		}	 
+	}	 
 	
 	
 }

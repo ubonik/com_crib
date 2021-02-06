@@ -4,8 +4,8 @@ defined('_JEXEC') or die;
 
 class CribViewCategory extends JViewLegacy
 {
-	public $form;
-	public $item;
+	protected $form;
+	protected $item;
 	
 	public function display($tpl = null)
 	{
@@ -25,11 +25,11 @@ class CribViewCategory extends JViewLegacy
 		
 		if ($isNew) {
 			
-			$title = "Создание категории";			
-			}
-		else{
+			$title = JText::_('COM_CRIB_MANAGER_CATEGORY_NEW');
+						
+		}else{
 		    
-		    $title = "Редактирование категории";	
+		    $title = JText::_('COM_CRIB_MANAGER_CATEGORY_EDIT');	
 		}	
 		
 		JToolbarHelper::title($title);
@@ -46,4 +46,3 @@ class CribViewCategory extends JViewLegacy
 	}  
 	
 }
-

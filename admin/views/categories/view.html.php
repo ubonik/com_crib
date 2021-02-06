@@ -1,7 +1,5 @@
 <?php
 
-//use Joomla\CMS\Toolbar\ToolbarHelper;
-
 defined('_JEXEC') or die;
 
 class CribViewCategories extends JViewLegacy
@@ -28,8 +26,7 @@ class CribViewCategories extends JViewLegacy
 		JToolbarHelper::editList('category.edit');
 		JToolbarHelper::publish('categories.publish', 'JTOOLBAR_PUBLISH', true);
 		JToolbarHelper::unpublish('categories.unpublish', 'JTOOLBAR_UNPUBLISH', true);
-		JToolbarHelper::deleteList('удаляем?', 'categories.delete');
-		
+		JToolbarHelper::deleteList('удаляем?', 'categories.delete');	
 		
 	}
 	

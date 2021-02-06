@@ -4,8 +4,8 @@ defined('_JEXEC') or die;
 
 class CribViewWord extends JViewLegacy
 {
-	public $form;
-	public $item;	
+	protected $form;
+	protected $item;	
 	
 	public function display($tmpl = null)
 	{
@@ -35,7 +35,7 @@ class CribViewWord extends JViewLegacy
 		JToolbarHelper::title($title);		
 		JToolbarHelper::apply('word.apply');
 		JToolbarHelper::save('word.save');
-		JToolbarHelper::cancel('word.cancel');	
+		JToolbarHelper::cancel('word.cancel');
 			
 	}
 	

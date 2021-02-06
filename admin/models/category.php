@@ -14,16 +14,14 @@ class CribModelCategory extends JModelAdmin
 		    ] 
 		    );
 		    
-		if (empty($form)) {
-			
+		if (empty($form)) {			
 			
 		    return false;	
 	    } 
 	    
 	    return $form;
-	       
+	    	       
 	}	
-	
 	
 	public function getTable($name = 'Category', $prefix = 'CribTable', $options = array())
 	{
@@ -42,7 +40,6 @@ class CribModelCategory extends JModelAdmin
 		}    
 		
 		return $data;
-	}
-	
+	}	
 	
 }

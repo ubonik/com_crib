@@ -24,8 +24,8 @@ class CribTableCategory extends JTable
 			
 			if (!$this->load($pk)) {
 				
-			throw new RuntimeException('ошибка');
-			 }
+			    throw new RuntimeException('ошибка');
+			}
 			
 			$this->state = $state;
 		
@@ -33,17 +33,11 @@ class CribTableCategory extends JTable
 				
 			throw new RuntimeException('ошибка');
 			
-		   }			
+            }			
 			
-			}
+		}
 			
 		return true;
 	}	
 	
-	
-	
-	
 }
-
-
-
