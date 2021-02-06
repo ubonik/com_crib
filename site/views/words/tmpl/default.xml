@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metadata>
+	<layout title="CRIB_WORDS_VIEW_DEFAULT_TITLE">
+		<message>CRIB_WORDS_VIEW_DEFAULT_DESCRIPTION</message>
+	</layout>
+	
+	<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_eng/models/fields">
+			<field name="idcat" type="categoryparent" label="выбор категории" >
+				<option value="">dfggh</option>
+			</field>
+			
+			<field name="lerned" type="list" label="пройденное" >
+				 <option value="2">выберите статус</option>
+				<option value="0">новое</option>
+				<option value="1">пройденное</option>
+			</field>	
+			</fieldset>
+	</fields>
+</metadata>
+

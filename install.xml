@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<extension type="component" version="3.0" method="upgrade">
+	
+<name>COM_CRIB</name>
+<creationDate>24.10.2020</creationDate>
+<author>Alexandr Redkosheev</author>
+<authorEmail>liders05@mail.ru</authorEmail>
+<authorUrl></authorUrl>
+<copyright>Copyright Info</copyright>
+<license>License Info</license>
+<version>0.0.3</version>
+<description>COM_CRIB_XML_DESCRIPTION</description>
+    
+<files folder="site">	
+		
+	<folder>controllers</folder>
+	<folder>models</folder>
+	<folder>views</folder>
+	
+	<filename>controller.php</filename>
+	<filename>crib.php</filename>
+	<filename>index.html</filename> 
+	      
+</files>
+    
+<administration>
+	<menu link='option=com_crib'>COM_CRIB_MENU_NAME</menu>
+	
+	<submenu>
+	    <menu view="words">COM_CRIB_MENU_WORDS</menu>
+		<menu view="categories">COM_CRIB_MENU_CATEGORIES</menu>
+	</submenu>	
+	
+	<languages folder="admin">
+        <language tag="ru-RU">language/ru-RU/ru-RU.com_crib.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.com_crib.sys.ini</language>
+    </languages>
+	  	
+	<files folder="admin">		
+		 
+		<folder>assets</folder>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>layouts</folder>
+		<folder>models</folder>
+		<folder>sql</folder>
+		<folder>tables</folder>
+		<folder>views</folder>
+		
+		<filename>controller.php</filename>
+		<filename>crib.php</filename>
+		<filename>index.html</filename>
+		      
+	</files>    
+    
+</administration>
+
+</extension>

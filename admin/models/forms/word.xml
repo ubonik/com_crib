@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name='basic' addfieldpath="/administrator/components/com_crib/models/fields">
+	    <field name='id' type='hidden'></field>
+	    <field name='english' type='text' default='' label='word' required='true'></field>
+	    <field name='rus' type='text' default='' label='перевод' ></field>
+	    <field name='id_categories' type='categoryparent' extension='com_crib' default='' label='категория' filter='raw' >
+			<option value=''>Выберите категорию</option>
+		</field>
+	        
+	    <field name='state' type='list' default='1' label='JSTATUS' class='chzn-color-state'>
+	        <option value='0'>JUNPUBLISHED</option>
+	        <option value='1'>JPUBLISHED</option>
+	    </field>   
+	    <field name="lerned" type="list" label="статус" description="" value="0" class='chzn-color-state' >
+		    <option value='0'>не выучено</option>
+	        <option value='1'>выучено</option>
+	    </field>
+	</fieldset>
+
+</form>
