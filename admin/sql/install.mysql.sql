@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `vg035_eng_dictionary`
+-- Структура таблицы `#__crib_dictionary`
 --
 
 CREATE TABLE IF NOT EXISTS `#__crib_dictionary` (
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `#__crib_dictionary` (
 -- Дамп данных таблицы `vg035_eng_dictionary`
 --
 
-INSERT INTO `#__crib_dictionary` (`id`, `english`, `rus`, `id_categories`, `state`, `ordering`, `lerned`) VALUES
+INSERT IGNORE INTO `#__crib_dictionary` (`id`, `english`, `rus`, `id_categories`, `state`, `ordering`, `lerned`) VALUES
 (6, 'where', 'где, куда', 5, 1, 332, 1),
 (7, 'put', 'поместить, разместить, вложить', 16, 1, 331, 1),
 (8, 'provide', 'обеспечивать', 16, 1, 330, 1),

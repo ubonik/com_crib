@@ -11,6 +11,12 @@
 <license>License Info</license>
 <version>0.0.3</version>
 <description>COM_CRIB_XML_DESCRIPTION</description>
+
+<install>
+	<sql>
+		<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+	</sql>
+</install>
     
 <files folder="site">
 	
