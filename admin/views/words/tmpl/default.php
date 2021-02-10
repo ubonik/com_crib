@@ -78,7 +78,7 @@ JHtml::_('formbehavior.chosen', 'select');
 		        <tr>
 	                <td colspan='5'>
 		            <div style="float:left"><?php echo $this->pagination->getListFooter()?></div>
-		            <div style="float:right">Показать:  <?php echo $this->pagination->getLimitBox()?></div>
+		            <div style="float:right"><!--Показать:-->  <?php //echo $this->pagination->getLimitBox()?></div>
 	                </td>	
 	            </tr>	
 	        </tfoot>

@@ -6,7 +6,7 @@ class CribTableCategory extends JTable
 {
     public function __construct($db)
 	{
-		parent::__construct('#__eng_categories', 'id', $db);
+		parent::__construct('#__crib_categories', 'id', $db);
     }	
 	
 	public function publish($pks = null, $state = 1, $userId = 0)

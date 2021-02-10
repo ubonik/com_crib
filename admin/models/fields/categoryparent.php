@@ -28,7 +28,7 @@ class JFormFieldCategoryparent extends JFormFieldList
 		
 		$query->select($db->quoteName( array('id', 'name'), array('value', 'text')));
 		
-		$query->from($db->quoteName('#__eng_categories'));
+		$query->from($db->quoteName('#__crib_categories'));
 		
 		$query->where($db->quoteName('state'). ' = ' .$db->quote(1));
 		

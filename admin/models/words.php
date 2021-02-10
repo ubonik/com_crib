@@ -18,9 +18,9 @@ class CribModelWords extends JModelList
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
 				
-		$query->select('id, english, rus, id_categories, state, ordering, lerned');
+		$query->select($db->quoteName(['id', 'english', 'rus', 'id_categories', 'state', 'ordering', 'lerned']));
 		
-		$query->from('#__crib_dictionary');	
+		$query->from($db->quoteName('#__crib_dictionary'));	
 		
 		$search = $this->getState('filter.search');
  
@@ -28,21 +28,21 @@ class CribModelWords extends JModelList
 		
 			$like = $db->quote('%' . $search . '%');
 			
-			$query->where('english LIKE ' . $like);
+			$query->where($db->quoteName('english') . ' LIKE ' . $like);
 		}
 		
 		$category = $this->getState('filter.category');
 		
 		if (!empty($category)) {
 			
-			$query->where('id_categories = '.(int)$category);
+			$query->where($db->quoteName('id_categories') . ' = '.(int)$category);
 		}
 		
 		$published = $this->getState('filter.state');
 		
 		if (is_numeric($published)) {
 			
-			$query->where('state = ' . (int) $published);
+			$query->where($db->quoteName('state') . ' = ' . (int) $published);
 		}
 			elseif ($published === '') {
 				
@@ -53,7 +53,7 @@ class CribModelWords extends JModelList
 		
 		if (is_numeric($lerned)) {
 			
-			$query->where('lerned = ' . (int) $lerned);
+			$query->where($db->quoteName('lerned') . ' = ' . (int) $lerned);
 		}
 			elseif ($lerned === '') {
 				

@@ -43,28 +43,25 @@ class CribTableWord extends JTable
 
 	public function check()
 	{		
-		$db = $this->getDbo();
+		$db = $this->getDbo();		
+		$query = $db->getQuery(true);		
 		
-		$query = $db->getQuery(true);
-		
-		$query->select('id, english');
-		
-		$query->from('#__crib_dictionary');
-		
-	    $query->where('english= '."'". $this->english ."'");
+		$query->select($db->quoteName(['id', 'english']));		
+		$query->from($db->quoteName('#__crib_dictionary'));		    
+	    $query->where($db->quoteName('english') . ' = ' . $db->quote($this->english));	    	    
 
 		$db->setQuery($query);
 		
 		$result = $db->loadRow();	
 		
-		if($result[0] != $this->id && $result[1] ==$this->english) {
+		if($result[0] != $this->id && $result[1] == $this->english) {
 			
 			$this->setError(JText::_('Ошибка'));
 			
 			return false;			
 		}		
 		
-		return true;		
+		return true;	
 	}		
 	
 }

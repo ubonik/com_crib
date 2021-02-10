@@ -15,14 +15,9 @@ class CribViewWords extends JViewLegacy
 	public $saveOrder;
 	
 	
-	public function display($tmpl = null)
+	public function display($tpl = null)
 	{	
-		$this->sidebar = CribHelper::addSubMenu('words');
-				
-		$this->filterForm = $this->get('filterForm');		
-		$this->activeFilters = $this->get('activeFilters');
-		
-		$this->addToolbar();
+		$this->sidebar = CribHelper::addSubMenu('words');		
 		
 		$this->items = $this->get('items');				
 		$this->pagination = $this->get('pagination');		
@@ -30,9 +25,14 @@ class CribViewWords extends JViewLegacy
 		
 		$this->listOrder = $this->state->get('list.ordering');		
 		$this->listDirn = $this->state->get('list.direction');		
-		$this->saveOrder = ($this->listOrder == 'ordering');		
+		$this->saveOrder = ($this->listOrder == 'ordering');
+
+		$this->filterForm = $this->get('FilterForm');		
+		$this->activeFilters = $this->get('ActiveFilters');
 		
-		parent::display($tmpl); 		
+		$this->addToolbar();
+		
+		parent::display($tpl); 		
 		
 	}
 	

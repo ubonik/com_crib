@@ -10,7 +10,7 @@ class  CribModelCategories extends JModelList
 		
 		$query->select('id, name, state');		
 		
-		$query->from('#__eng_categories');		
+		$query->from('#__crib_categories');		
 		
 		echo $query;
 		

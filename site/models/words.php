@@ -5,7 +5,7 @@ defined('_JEXEC') or die;
 class CribModelWords extends JModelList
 {
 	
-protected function getListQuery()
+    protected function getListQuery()
 	{
 		$query = parent::getListQuery();
 		
@@ -54,9 +54,11 @@ protected function getListQuery()
 				
 		}			
 		
-		$value = $this->getUserStateFromRequest($this->context.'.filer.lerned', 'lerned');
-			
-			$this->setState('filter.lerned', $value);		
+		$value = $this->getUserStateFromRequest($this->context.'.filer.lerned', 'lerned');			
+		$this->setState('filter.lerned', $value);	
+		
+		$value = $this->getUserStateFromRequest($this->context.'.list.limit', 'limit');			
+		$this->setState('list.limit', $value);			
 		
 	}	
 	 
