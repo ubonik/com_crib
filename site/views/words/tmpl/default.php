@@ -1,4 +1,5 @@
 <?php
+
 defined('_JEXEC') or die();
 
 JHtml::_('behavior.framework');
@@ -9,35 +10,31 @@ JHtml::_('bootstrap.loadCss');
 
 <form action = "<?php echo htmlspecialchars(JUri::getInstance()->toString());?>" method = "post" name = "adminForm" id = "adminForm">
 
-
 <?php  
-$items = $this->items;
-$i = 1;
-foreach ($items as $item): ?>
-<?php // print_r($item); ?>
+    $items = $this->items;
+    $i = 1;
+?>
 
-<div>
+<?php foreach ($items as $item): ?>
 
-<?php echo $i.'. ----    '.$item->english.' -------- '; ?> 
+    <div>
+    <?php echo $i.'. ----    '.$item->english.' -------- '; ?>
  
-<input type="checkbox" id="raz<?php echo $i; ?>" class="del"/><label for="raz<?php echo $i; ?>" class="del">нажать</label><span><?php echo ' -------- '.$item->rus; ?></span>
-</div>
+        <input type="checkbox" id="raz<?php echo $i; ?>" class="del hidden" />
+        <label for="raz<?php echo $i; ?>" class="del" > жми</label>
+        <span class="del visible"><?php echo ' -------- '.$item->rus; ?></span>
+    </div> 
 <?php $i++; ?>
 
-
-<?php endforeach;  ?>
+<?php endforeach; ?>
 		
-	<div colspan='5'>
-     <div style="float:left"><?php echo $this->pagination->getListFooter()?></div>
-		<div style="float:right"><?php echo $this->pagination->getLimitBox()?></div>
+	    <div colspan='5'>
+            <div style="float:left"><?php echo $this->pagination->getListFooter()?></div>
+		    <div style="float:right"><?php echo $this->pagination->getLimitBox()?></div>
 	 	</div>
-	
-	
-	
-	
-   <input type = "hidden" name = "task" value="">  
+	 		
+        <input type = "hidden" name = "task" value="">
+         
 <?php echo JHtml::_('form.token'); ?>
 
 </form>
-
-

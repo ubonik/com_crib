@@ -1,31 +1,15 @@
-.icon-doskatitle{
+.hidden {
+    visibility: hidden;
+    }
 
-	background-image: url(../images/icon.png);
-	width: 30px;
-	height: 30px;
-		}
-
-.icon-doskabutton {
-	background-image: url("../images/icon.png");
-	
-		}
-
-}
-
-.icon-doskabutton_hover{
-
-background: url(../images/icon.png);
-
-
-}
-
-.del { display: none; }
-.del:not(:checked) + label + * { display: none; } /* фактически нужна только одна строка */
-
+.del:not(:checked) + label + * { 
+    opacity: 0;  
+    } 
+    
 /* вид CSS кнопки */
 .del:not(:checked) + label,
 .del:checked + label {
-  display: inline-block;
+  display: inline-block;  
   padding: 2px 10px;
   border-radius: 2px;
   color: #fff;
@@ -33,6 +17,11 @@ background: url(../images/icon.png);
   cursor: pointer;
 }
 .del:checked + label {
-  background: #e36443;
+  background: #e36443;  
+  opacity: 1; 
 }
 
+span.visible:hover {
+opacity: 1;
+
+}
