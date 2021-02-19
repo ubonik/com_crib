@@ -17,10 +17,14 @@ class CribModelWords extends JModelList
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
-				
-		$query->select($db->quoteName(['id', 'english', 'rus', 'id_categories', 'state', 'ordering', 'lerned']));
 		
-		$query->from($db->quoteName('#__crib_dictionary'));	
+		$query->select($db->quoteName(['d.id', 'd.english', 'd.rus', 'd.id_categories', 'd.state', 'd.ordering', 'd.lerned']));
+		
+		$query->from($db->quoteName('#__crib_dictionary', 'd'));		
+		
+		$query->select($db->quoteName('c.name', 'category'));		
+		
+		$query->join('LEFT', $db->quoteName('#__crib_categories', 'c') . ' ON ' . $db->quoteName('c.id') . '=' . $db->quoteName('d.id_categories'));		
 		
 		$search = $this->getState('filter.search');
  
@@ -28,45 +32,44 @@ class CribModelWords extends JModelList
 		
 			$like = $db->quote('%' . $search . '%');
 			
-			$query->where($db->quoteName('english') . ' LIKE ' . $like);
+			$query->where($db->quoteName('d.english') . ' LIKE ' . $like);
 		}
 		
 		$category = $this->getState('filter.category');
 		
 		if (!empty($category)) {
 			
-			$query->where($db->quoteName('id_categories') . ' = '.(int)$category);
+			$query->where($db->quoteName('d.id_categories') . ' = '.(int)$category);
 		}
 		
 		$published = $this->getState('filter.state');
 		
 		if (is_numeric($published)) {
 			
-			$query->where($db->quoteName('state') . ' = ' . (int) $published);
+			$query->where($db->quoteName('d.state') . ' = ' . (int) $published);
 		}
 			elseif ($published === '') {
 				
-			$query->where('(state = 0 OR state = 1)');
+			$query->where('(d.state = 0 OR d.state = 1)');
 		}
 
 		$lerned = $this->getState('filter.lerned');
 		
 		if (is_numeric($lerned)) {
 			
-			$query->where($db->quoteName('lerned') . ' = ' . (int) $lerned);
+			$query->where($db->quoteName('d.lerned') . ' = ' . (int) $lerned);
 		}
 			elseif ($lerned === '') {
 				
-			$query->where('(lerned = 0 OR lerned = 1)');
+			$query->where('(d.lerned = 0 OR d.lerned = 1)');
 		}
-
 		
-		$orderCol = $this->getState('list.ordering', 'id');
-		$orderDirn = $this->getState('list.direction', 'desc');
+		$orderCol = $db->escape($this->getState('list.ordering', 'd.id'));
+		$orderDirn = $db->escape($this->getState('list.direction', 'desc'));
 		
-		$query->order($orderCol . ' ' . $orderDirn);
+		$query->order($db->quoteName($orderCol) . ' ' . $orderDirn);		
 		
-		return $query;			
+		return $query;		
 			
 	}	
 	

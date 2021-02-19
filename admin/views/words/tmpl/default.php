@@ -22,14 +22,15 @@ JHtml::_('formbehavior.chosen', 'select');
             <thead>				
                 <th width="1%">номер</th>
                 <th width="2%"><?php echo JHtml::_('grid.checkall') ?></th>
-                <th width="35%">
+                <th width="30%">
 					<?php echo JHtml::_('grid.sort', 'слово', 'english', $this->listDirn, $this->listOrder) ?>
 				</th>
-                <th width="35%">перевод</th>
-                <th width="10%">
+                <th width="30%">перевод</th>
+                <th width="20%">категория</th>
+                <th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JSTATUS', 'state', $this->listDirn, $this->listOrder) ?>
 				</th>
-				<th width="10%">					
+				<th width="5%">					
 					<?php echo JHtml::_('grid.sort', 'по порядку', 'ordering', $this->listDirn, $this->listOrder) ?>
 					
 					<?php if ($this->saveOrder):?>  
@@ -51,6 +52,7 @@ JHtml::_('formbehavior.chosen', 'select');
                     <?php $link = JRoute::_('index.php?option=com_crib&task=word.edit&id=' .$item->id) ?>
                     <td><?php echo JHtml::_('link', $link, $item->english); ?></td>
                     <td><?php echo $item->rus; ?></td>
+                    <td><?php echo $item->category; ?></td>
                     <td><?php echo JHtml::_('jgrid.published', $item->state, $key, 'words.'); ?></td>                
                     
                     <td>						
@@ -68,7 +70,7 @@ JHtml::_('formbehavior.chosen', 'select');
 						<?php $disabled = $this->saveOrder ? '': 'disabled="disabled"' ?>
 						<input type="text" name="order[]" value="<?php echo $item->ordering ?>"  <?php echo $disabled ?> >
 					</td> 
-                    <td></td>                  
+                    <td><?php echo $item->id; ?></td>                  
                 </tr>
                 <?php $i++; ?>
                 <?php endforeach ?>        
