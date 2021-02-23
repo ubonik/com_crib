@@ -61,8 +61,32 @@ class CribModelWord extends JModelAdmin
 			return true;
 		}
 		
-		return false;		 
+		return false;			
+	}
+	
+	public function lerned($cid, $value)
+	{
+		$table = $this->getTable();	
 		
+		if ($table->load($cid)) {
+			
+			if (!$table->lerned($cid, $value)) {
+				
+				$this->setError($table->getError());
+				
+				return false;				
+			}
+							
+		} else {
+				
+			$this->setError($table->getError());
+				
+			return false;
+		}
+		
+		$this->cleanCache();
+		
+		return true;		
 	}	
 	
 }

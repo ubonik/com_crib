@@ -26,7 +26,8 @@ JHtml::_('formbehavior.chosen', 'select');
 					<?php echo JHtml::_('grid.sort', 'слово', 'english', $this->listDirn, $this->listOrder) ?>
 				</th>
                 <th width="30%">перевод</th>
-                <th width="20%">категория</th>
+                <th width="15%">категория</th> 
+                <th width="5%">выучено</th>
                 <th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JSTATUS', 'state', $this->listDirn, $this->listOrder) ?>
 				</th>
@@ -53,6 +54,7 @@ JHtml::_('formbehavior.chosen', 'select');
                     <td><?php echo JHtml::_('link', $link, $item->english); ?></td>
                     <td><?php echo $item->rus; ?></td>
                     <td><?php echo $item->category; ?></td>
+                    <td><?php echo CribHelper::learnedWords($item->lerned, $key, 'words.') ?></td>
                     <td><?php echo JHtml::_('jgrid.published', $item->state, $key, 'words.'); ?></td>                
                     
                     <td>						

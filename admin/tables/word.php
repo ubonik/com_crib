@@ -62,6 +62,27 @@ class CribTableWord extends JTable
 		}		
 		
 		return true;	
+	}
+	
+	public function lerned($cid, $value = 0)
+	{
+		if (empty($cid)) {
+			throw new RuntimeException(JText::_('COM_CRIB_WORD_LERNED_NO_ID'));			
+		}
+		
+		if (!isset($this->lerned)) {
+			
+			throw new RuntimeException(JText::_('COM_CRIB_WORD_LERNED_NO_LERNED'));
+		}
+		
+		$this->lerned = $value;
+		
+		if (!$this->store()) {
+			
+			throw new RuntimeException(JText::_('COM_CRIB_WORD_LERNED_ERROR_STORE'));
+		}
+		
+		return true;
 	}		
 	
 }
