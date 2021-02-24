@@ -2,12 +2,15 @@
 
 defined('_JEXEC') or die;
 
-class CribModelWords extends JModelList
+require_once JPATH_ADMINISTRATOR . '/components/com_crib/models/words.php';
+
+class CribModelSitewords extends CribModelWords
 {
 	
     protected function getListQuery()
 	{
-		$query = parent::getListQuery();
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
 		
 		$query->select('id, english, rus, id_categories, state, ordering, lerned');
 		
@@ -68,6 +71,13 @@ class CribModelWords extends JModelList
 		$id .= ':' . $this->getState('filter.lerned');		
 
 		return parent::getStoreId($id);
+	}
+	
+	public function lerned($cid, $value)
+	{
+		$model = $this->getInstance('Siteword','CribModel');		
+		
+		return $model->lerned($cid, $value);				
 	}	
 	
 }

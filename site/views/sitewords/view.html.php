@@ -2,7 +2,7 @@
 
 defined('_JEXEC') or die;
 
-class CribViewWords extends JViewLegacy
+class CribViewSitewords extends JViewLegacy
 {
 	public $items;
 	public $state;

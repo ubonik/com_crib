@@ -14,10 +14,12 @@ JHtml::_('bootstrap.loadCss');
     $items = $this->items;
     $i = 1;
 ?>
-
-<?php foreach ($items as $item): ?>
+<? if ($items):?>
+<?php foreach ($items as $key => $item): ?>
 
     <div>
+    <span class="hidden"><?php echo JHtml::_('grid.id', $key, $item->id); ?></span>	
+	<?php echo CribHelper::learnedWords($item->lerned, $key, 'sitewords.') ?> 
     <?php echo $i.'. ----    '.$item->english.' -------- '; ?>
  
         <input type="checkbox" id="raz<?php echo $i; ?>" class="del hidden" />
@@ -27,6 +29,7 @@ JHtml::_('bootstrap.loadCss');
 <?php $i++; ?>
 
 <?php endforeach; ?>
+<?php endif; ?>
 		
 	    <div colspan='5'>
             <div style="float:left"><?php echo $this->pagination->getListFooter()?></div>
@@ -34,6 +37,7 @@ JHtml::_('bootstrap.loadCss');
 	 	</div>
 	 		
         <input type = "hidden" name = "task" value="">
+        <input type="hidden" name="boxchecked" value="0">
          
 <?php echo JHtml::_('form.token'); ?>
 

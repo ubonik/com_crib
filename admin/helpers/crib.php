@@ -34,7 +34,7 @@ abstract class CribHelper {
 	
         $html = '<a ' . $class . ' onclick="return listItemTask(\'cb' .$i . '\',\'' . $prefix . $task . '\')"';
         //$html .= ' >' . JHtml::_('image', 'img/' . $img, $alt, null, true) . '</a>';
-	    $html .= ' >' . JHtml::_('image', 'admin/' . $img, $alt, null, true) . '</a>';	
+	    $html .= ' >' . JHtml::_('image', 'administrator/components/com_crib/assets/images/' . $img, $alt, null, false) . '</a>';	
 	
 	    return $html;
 	

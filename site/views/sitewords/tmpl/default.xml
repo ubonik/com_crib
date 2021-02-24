@@ -6,7 +6,7 @@
 	</layout>
 	
 	<fields name="request">
-		<fieldset name="request" addfieldpath="/administrator/components/com_eng/models/fields">
+		<fieldset name="request" addfieldpath="/administrator/components/com_crib/models/fields">
 			<field name="idcat" type="categoryparent" label="выбор категории" >
 				<option value="">dfggh</option>
 			</field>
